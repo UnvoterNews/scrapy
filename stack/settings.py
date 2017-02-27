@@ -30,32 +30,12 @@ MONGODB_ADD_TIMESTAMP = True
 
 #ROBOTSTXT_OBEY = True
 
-SPIDER_MIDDLEWARES = {
-    'scrapy_deltafetch.DeltaFetch': 100,
-    'scrapy_magicfields.MagicFieldsMiddleware': 200,
-}
-
-
-MAGICFIELDS_ENABLED = True
-MAGIC_FIELDS = {
-    "timestamp": "$time",
-    "spider": "$spider:name",
-    "url": "scraped from $response:url",
-    "domain": "$response:url,r'https?://([\w\.]+)/']",
-}
-
-
-DOWNLOADER_MIDDLEWARES = {
-    'scrapy_splash.SplashCookiesMiddleware': 723,
-    'scrapy_splash.SplashMiddleware': 725,
-    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
-}
-
-SPLASH_URL = 'http://172.17.0.2:8050'
 
 SPIDER_MIDDLEWARES = {
     'scrapy_deltafetch.DeltaFetch': 100,
-    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
-
+    
 }
 DELTAFETCH_ENABLED = True
+
+
+
